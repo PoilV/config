@@ -58,17 +58,6 @@ sniffer:
       - 443
       - 8443
 
-tun:
-  enable: true
-  stack: mixed
-  auto-route: true
-  auto-redirect: true
-  auto-detect-interface: true
-  dns-hijack:
-    - "udp://any:53"
-    - "tcp://any:53"
-  strict-route: true
-
 #listeners:
 #- name: mixed-in
 #  type: mixed
@@ -81,6 +70,28 @@ socks-port: 7891
 mixed-port: 7892
 redir-port: 7893
 tproxy-port: 7894
+
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - "udp://any:53"
+    - "tcp://any:53"
+  strict-route: true
+
+proxies:
+- name: "http"
+  type: http
+  server: localhost
+  port: 21081
+- name: "socks"
+  type: socks5
+  server: localhost
+  port: 21080
+  udp: true
 
 proxy-providers:
   provider1:
@@ -96,7 +107,7 @@ proxy-providers:
 proxy-groups:
 - name: PROXY
   type: fallback
-  proxies: [香港,新加坡,台湾,美国,日本,其它地区,DIRECT]
+  proxies: [http,socks,香港,新加坡,台湾,美国,日本,其它地区,DIRECT]
   url: https://cp.cloudflare.com
   interval: 300
 - name: 香港
