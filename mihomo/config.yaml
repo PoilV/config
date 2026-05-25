@@ -6,6 +6,15 @@ profile:
   store-fake-ip: false
 unified-delay: true
 tcp-concurrent: true
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
+  geosite: "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+  mmdb: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb"
+  asn: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
 dns:
   enable: true
@@ -153,6 +162,7 @@ rules:
 - RULE-SET,gfw_domain,PROXY
 - RULE-SET,tiktok_domain,PROXY
 - RULE-SET,cn_domain,DIRECT
+# - GEOSITE,geolocation-!cn,PROXY
 - RULE-SET,private_ip,DIRECT,no-resolve
 - RULE-SET,cn_ip,DIRECT
 - RULE-SET,telegram_ip,PROXY
@@ -171,11 +181,11 @@ rule-providers:
 
   category-ads-all_domain:
     type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-ads-all.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-ads-all.list
     path: ./rule_providers/category-ads-all_domain.yaml
     interval: 86400
-    behavior: domain
-    format: yaml
+    behavior: classical
+    format: list
 
   private_domain:
     type: http
