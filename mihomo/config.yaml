@@ -164,7 +164,6 @@ rule-providers:
   anti-ad-clash_domain:
     type: http
     url: https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml
-    path: ./rule_providers/anti-ad-clash.yaml
     interval: 86400
     behavior: domain
     format: yaml
