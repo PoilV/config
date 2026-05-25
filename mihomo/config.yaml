@@ -88,7 +88,6 @@ proxy-providers:
   provider1:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/refs/heads/master/list.meta.yml
-    path: ./proxy_providers/provider1.yaml
     interval: 86400
     health-check:
       enable: true
