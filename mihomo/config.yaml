@@ -173,10 +173,10 @@ rule-providers:
   category-ads-all_domain:
     type: http
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-ads-all.list
-    path: ./rule_providers/category-ads-all_domain.yaml
+    path: ./rule_providers/category-ads-all_domain.list
     interval: 86400
     behavior: classical
-    format: list
+    format: text
 
   private_domain:
     type: http
