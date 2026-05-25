@@ -14,7 +14,6 @@ dns:
   enhanced-mode: redir-host
   respect-rules: true
   default-nameserver:
-  - system
   - https://223.5.5.5/dns-query
   - https://1.1.1.1/dns-query
   - https://8.8.8.8/dns-query
@@ -22,7 +21,6 @@ dns:
   - https://dns.alidns.com/dns-query
   - https://doh.pub/dns-query
   direct-nameserver:
-  - system
   - https://dns.alidns.com/dns-query
   - https://doh.pub/dns-query
   nameserver:
@@ -48,13 +46,6 @@ sniffer:
       ports:
       - 443
       - 8443
-
-#listeners:
-#- name: mixed-in
-#  type: mixed
-#  port: 7890
-#  listen: 127.0.0.1
-#  udp: true
 
 port: 7890
 socks-port: 7891
@@ -144,7 +135,6 @@ proxy-groups:
   interval: 300
 
 rules:
-- RULE-SET,anti-ad-clash_domain,REJECT
 - RULE-SET,category-ads-all_domain,REJECT
 - RULE-SET,private_domain,DIRECT
 - RULE-SET,category-games@cn_domain,DIRECT
@@ -152,98 +142,80 @@ rules:
 - RULE-SET,gfw_domain,PROXY
 - RULE-SET,tiktok_domain,PROXY
 - RULE-SET,cn_domain,DIRECT
-# - GEOSITE,geolocation-!cn,PROXY
+
 - RULE-SET,private_ip,DIRECT,no-resolve
 - RULE-SET,cn_ip,DIRECT
 - RULE-SET,telegram_ip,PROXY
-- IP-CIDR,8.8.4.0/24,PROXY
-- IP-CIDR,8.8.8.0/24,PROXY
+- RULE-SET,google_ip,PROXY
+
 - MATCH,DIRECT
 
 rule-providers:
-  anti-ad-clash_domain:
-    type: http
-    url: https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
   category-ads-all_domain:
     type: http
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-ads-all.list
-    path: ./rule_providers/category-ads-all_domain.list
+    interval: 86400
+    behavior: classical
+    format: text
+  private_domain:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/private.list
+    interval: 86400
+    behavior: classical
+    format: text
+  category-games@cn_domain:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-games@cn.list
+    interval: 86400
+    behavior: classical
+    format: text
+  googlefcm_domain:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/googlefcm.list
+    interval: 86400
+    behavior: classical
+    format: text
+  gfw_domain:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/gfw.list
+    interval: 86400
+    behavior: classical
+    format: text
+  tiktok_domain:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/tiktok.list
+    interval: 86400
+    behavior: classical
+    format: text
+  cn_domain:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/cn.list
     interval: 86400
     behavior: classical
     format: text
 
-  private_domain:
-    type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/private.yaml
-    path: ./rule_providers/private_domain.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
-  category-games@cn_domain:
-    type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-games@cn.yaml
-    path: ./rule_providers/category-games@cn_domain.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
-  googlefcm_domain:
-    type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/googlefcm.yaml
-    path: ./rule_providers/googlefcm_domain.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
-  gfw_domain:
-    type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gfw.yaml
-    path: ./rule_providers/gfw_domain.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
-  tiktok_domain:
-    type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/tiktok.yaml
-    path: ./rule_providers/tiktok_domain.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
-  cn_domain:
-    type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/cn.yaml
-    path: ./rule_providers/cn_domain.yaml
-    interval: 86400
-    behavior: domain
-    format: yaml
-
   private_ip:
     type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/private.yaml
-    path: ./rule_providers/private_ip.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/private.list
     interval: 86400
-    behavior: ipcidr
-    format: yaml
-
+    behavior: classical
+    format: text
   cn_ip:
     type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/cn.yaml
-    path: ./rule_providers/cn_ip.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/cn.list
     interval: 86400
-    behavior: ipcidr
-    format: yaml
-
+    behavior: classical
+    format: text
   telegram_ip:
     type: http
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geoip/telegram.yaml
-    path: ./rule_providers/telegram_ip.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/telegram.list
     interval: 86400
-    behavior: ipcidr
-    format: yaml
+    behavior: classical
+    format: text
+  google_ip:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/google.list
+    interval: 86400
+    behavior: classical
+    format: text
+    
