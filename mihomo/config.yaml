@@ -79,7 +79,7 @@ proxy-providers:
   provider1:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/refs/heads/master/list.meta.yml
-    interval: 86400
+    interval: 3600
     health-check:
       enable: true
       url: https://cp.cloudflare.com
