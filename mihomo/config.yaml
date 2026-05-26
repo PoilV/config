@@ -193,7 +193,7 @@ rule-providers:
     interval: 86400
     behavior: classical
     format: text
-  google_ip:
+  google_domain:
     type: http
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/google.list
     interval: 86400
