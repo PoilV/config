@@ -142,11 +142,11 @@ rules:
 - RULE-SET,gfw_domain,PROXY
 - RULE-SET,tiktok_domain,PROXY
 - RULE-SET,cn_domain,DIRECT
+- RULE-SET,google_domain,PROXY
 
 - RULE-SET,private_ip,DIRECT,no-resolve
 - RULE-SET,cn_ip,DIRECT
 - RULE-SET,telegram_ip,PROXY
-- RULE-SET,google_ip,PROXY
 
 - MATCH,DIRECT
 
@@ -193,6 +193,12 @@ rule-providers:
     interval: 86400
     behavior: classical
     format: text
+  google_ip:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/google.list
+    interval: 86400
+    behavior: classical
+    format: text
 
   private_ip:
     type: http
@@ -212,10 +218,5 @@ rule-providers:
     interval: 86400
     behavior: classical
     format: text
-  google_ip:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/google.list
-    interval: 86400
-    behavior: classical
-    format: text
+
     
