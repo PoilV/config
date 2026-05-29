@@ -87,7 +87,7 @@ proxy-providers:
 
 proxy-groups:
 - name: PROXY
-  type: select
+  type: fallback
   proxies: [socks,http,新加坡,美国,香港,台湾,日本,其它地区,DIRECT]
   url: https://cp.cloudflare.com
   interval: 300
