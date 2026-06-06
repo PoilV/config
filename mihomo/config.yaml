@@ -144,88 +144,45 @@ proxy-groups:
   interval: 300
 
 rules:
-- RULE-SET,category-ads-all,REJECT
-- RULE-SET,private,DIRECT
-- RULE-SET,category-games@cn,DIRECT
-- RULE-SET,googlefcm,DIRECT
+- GEOSITE,category-ads-all,REJECT
+- GEOSITE,private,DIRECT
+- GEOSITE,googlefcm,DIRECT
 - RULE-SET,gfw,PROXY
-- RULE-SET,tiktok,PROXY
-- RULE-SET,cn,DIRECT
-- RULE-SET,google,PROXY
+- RULE-SET,category-games@cn,DIRECT
+# - GEOSITE,google,PROXY
+# - GEOSITE,tiktok,PROXY
+- GEOSITE,geolocation-!cn@cn,DIRECT
+- GEOSITE,geolocation-!cn,PROXY
+- GEOSITE,cn@!cn,PROXY
+- GEOSITE,cn,DIRECT
 
-- RULE-SET,private_ip,DIRECT,no-resolve
-- RULE-SET,cn_ip,DIRECT
+- GEOIP,private,DIRECT,no-resolve
+- GEOIP,cn,DIRECT
 - RULE-SET,telegram_ip,PROXY
 
 - MATCH,DIRECT
 
 rule-providers:
-  category-ads-all:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-ads-all.list
-    interval: 86400
-    behavior: classical
-    format: text
-  private:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/private.list
-    interval: 86400
-    behavior: classical
-    format: text
   category-games@cn:
     type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/category-games@cn.list
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games@cn.mrs
     interval: 86400
-    behavior: classical
-    format: text
-  googlefcm:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/googlefcm.list
-    interval: 86400
-    behavior: classical
-    format: text
+    behavior: domain
+    format: mrs
   gfw:
     type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/gfw.list
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs
     interval: 86400
-    behavior: classical
-    format: text
-  tiktok:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/tiktok.list
-    interval: 86400
-    behavior: classical
-    format: text
-  cn:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/cn.list
-    interval: 86400
-    behavior: classical
-    format: text
-  google:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/google.list
-    interval: 86400
-    behavior: classical
-    format: text
+    behavior: domain
+    format: mrs
 
-  private_ip:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/private.list
-    interval: 86400
-    behavior: classical
-    format: text
-  cn_ip:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/cn.list
-    interval: 86400
-    behavior: classical
-    format: text
   telegram_ip:
     type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/classical/telegram.list
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
     interval: 86400
-    behavior: classical
-    format: text
+    behavior: ipcidr
+    format: mrs
+
+
 
     
