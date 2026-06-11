@@ -86,6 +86,14 @@ proxies:
 
 proxy-providers:
   provider1:
+    type: file
+    path: ./provider1.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com
+      interval: 300
+  provider2:
     type: http
     url: https://raw.githubusercontent.com/peasoft/NoMoreWalls/refs/heads/master/list.meta.yml
     interval: 3600
@@ -93,14 +101,7 @@ proxy-providers:
       enable: true
       url: https://cp.cloudflare.com
       interval: 300
-  provider2:
-    type: file
-    path: ./provider2.yaml
-    interval: 3600
-    health-check:
-      enable: true
-      url: https://cp.cloudflare.com
-      interval: 300
+
 
 
 proxy-groups:
