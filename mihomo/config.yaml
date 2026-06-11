@@ -93,6 +93,15 @@ proxy-providers:
       enable: true
       url: https://cp.cloudflare.com
       interval: 300
+  provider2:
+    type: file
+    path: ./provider2.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com
+      interval: 300
+
 
 proxy-groups:
 - name: PROXY
