@@ -96,14 +96,14 @@ proxy-providers:
 proxy-groups:
 - name: PROXY
   type: select
-  proxies: [新加坡,美国,香港,台湾,日本,罗马尼亚,其它,DIRECT]
+  proxies: [新加坡,美国,香港,台湾,日本,罗马尼亚,德国,其它,DIRECT]
   url: https://cp.cloudflare.com
   interval: 300
 - name: 其它
   type: select
   include-all: true
   exclude-type: direct
-  filter: "(?i)^(?!.*(?:新加坡|sg|singapore|狮城|美国|us|unitedstates|united states|香港|hk|hongkong|hong kong|台湾|tw|taiwan|日本|jp|japan|罗马尼亚|ro|Romania)).*"
+  filter: "(?i)^(?!.*(?:新加坡|sg|singapore|狮城|美国|us|unitedstates|united states|香港|hk|hongkong|hong kong|台湾|tw|taiwan|日本|jp|japan|罗马尼亚|ro|Romania|德国|de|Federal Republic of Germany)).*"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 新加坡
@@ -146,6 +146,13 @@ proxy-groups:
   include-all: true
   exclude-type: direct
   filter: "(?i)(罗马尼亚|ro|Romania)"
+  url: https://cp.cloudflare.com
+  interval: 300
+- name: 德国
+  type: url-test
+  include-all: true
+  exclude-type: direct
+  filter: "(?i)(德国|de|Federal Republic of Germany)"
   url: https://cp.cloudflare.com
   interval: 300
 
