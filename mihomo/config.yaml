@@ -103,21 +103,21 @@ proxy-groups:
   type: select
   include-all: true
   exclude-type: direct
-  filter: "(?i)^(?!.*(?:新加坡|sg|singapore|狮城|美国|us|unitedstates|united states|香港|hk|hongkong|hong kong|台湾|tw|taiwan|日本|jp|japan|罗马尼亚|ro|Romania|德国|de|Federal Republic of Germany)).*"
+  filter: "(?i)^(?!.*(?:新加坡|\\bsg\\b|singapore|狮城|美国|\\bus\\b|unitedstates|united states|香港|\\bhk\\b|hongkong|hong kong|台湾|\\btw\\b|taiwan|日本|\\bjp\\b|japan|罗马尼亚|\\bro\\b|Romania|德国|\\bde\\b|Federal Republic of Germany)).*"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 新加坡
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(新加坡|sg|singapore|狮城)"
+  filter: "(?i)(新加坡|\\bsg\\b|singapore|狮城)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 美国
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(美国|us|unitedstates|united states)"
+  filter: "(?i)(美国|\\bus\\b|unitedstates|united states)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 香港
@@ -131,14 +131,14 @@ proxy-groups:
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(台湾|tw|taiwan)"
+  filter: "(?i)(台湾|\\btw\\b|taiwan)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 日本
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(日本|jp|japan)"
+  filter: "(?i)(日本|\\bjp\\b|japan)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 罗马尼亚
@@ -152,7 +152,7 @@ proxy-groups:
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(德国|de|Federal Republic of Germany)"
+  filter: "(?i)(德国|\\bde\\b|Federal Republic of Germany)"
   url: https://cp.cloudflare.com
   interval: 300
 
