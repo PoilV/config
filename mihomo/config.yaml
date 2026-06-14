@@ -95,36 +95,8 @@ proxy-providers:
 
 proxy-groups:
 - name: PROXY
-  type: fallback
+  type: select
   proxies: [新加坡,美国,香港,台湾,日本,其它,DIRECT]
-  url: https://cp.cloudflare.com
-  interval: 300
-- name: 香港
-  type: url-test
-  include-all: true
-  exclude-type: direct
-  filter: "(?i)香港|hk|hongkong|hong kong"
-  url: https://cp.cloudflare.com
-  interval: 300
-- name: 台湾
-  type: url-test
-  include-all: true
-  exclude-type: direct
-  filter: "(?i)台湾|tw|taiwan"
-  url: https://cp.cloudflare.com
-  interval: 300
-- name: 日本
-  type: url-test
-  include-all: true
-  exclude-type: direct
-  filter: "(?i)日本|jp|japan"
-  url: https://cp.cloudflare.com
-  interval: 300
-- name: 美国
-  type: url-test
-  include-all: true
-  exclude-type: direct
-  filter: "(?i)美国|us|unitedstates|united states"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 新加坡
@@ -134,11 +106,39 @@ proxy-groups:
   filter: "(?i)(新加坡|sg|singapore)"
   url: https://cp.cloudflare.com
   interval: 300
-- name: 其它
+- name: 美国
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
+  filter: "(?i)(美国|us|unitedstates|united states)"
+  url: https://cp.cloudflare.com
+  interval: 300
+- name: 香港
+  type: url-test
+  include-all: true
+  exclude-type: direct
+  filter: "(?i)(香港|hk|hongkong|hong kong)"
+  url: https://cp.cloudflare.com
+  interval: 300
+- name: 台湾
+  type: url-test
+  include-all: true
+  exclude-type: direct
+  filter: "(?i)(台湾|tw|taiwan)"
+  url: https://cp.cloudflare.com
+  interval: 300
+- name: 日本
+  type: url-test
+  include-all: true
+  exclude-type: direct
+  filter: "(?i)(日本|jp|japan)"
+  url: https://cp.cloudflare.com
+  interval: 300
+- name: 其它
+  type: select
+  include-all: true
+  exclude-type: direct
+  filter: "(?i)^(?!.*(?:新加坡|sg|singapore|美国|us|unitedstates|united states|香港|hk|hongkong|hong kong|台湾|tw|taiwan|日本|jp|japan)).*"
   url: https://cp.cloudflare.com
   interval: 300
 
