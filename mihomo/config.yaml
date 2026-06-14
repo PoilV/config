@@ -114,35 +114,35 @@ proxy-groups:
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)港|hk|hongkong|hong kong"
+  filter: "(?i)香港|hk|hongkong|hong kong"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 台湾
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)台|tw|taiwan"
+  filter: "(?i)台湾|tw|taiwan"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 日本
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)日|jp|japan"
+  filter: "(?i)日本|jp|japan"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 美国
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)美|us|unitedstates|united states"
+  filter: "(?i)美国|us|unitedstates|united states"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 新加坡
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(新|sg|singapore)"
+  filter: "(?i)(新加坡|sg|singapore)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 其它地区
