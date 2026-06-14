@@ -103,56 +103,56 @@ proxy-groups:
   type: select
   include-all: true
   exclude-type: direct
-  filter: "(?i)^(?!.*(?:新加坡|\\bsg\\b|singapore|狮城|美国|\\bus\\b|unitedstates|united states|香港|\\bhk\\b|hongkong|hong kong|台湾|\\btw\\b|taiwan|日本|\\bjp\\b|japan|罗马尼亚|\\bro\\b|Romania|德国|\\bde\\b|Federal Republic of Germany)).*"
+  filter: "(?i)^(?!.*(?:新加坡|(?:^|[^a-zA-Z0-9])sg(?:[^a-zA-Z0-9]|$)|singapore|狮城|美国|(?:^|[^a-zA-Z0-9])us(?:[^a-zA-Z0-9]|$)|unitedstates|united states|香港|(?:^|[^a-zA-Z0-9])hk(?:[^a-zA-Z0-9]|$)|hongkong|hong kong|台湾|(?:^|[^a-zA-Z0-9])tw(?:[^a-zA-Z0-9]|$)|taiwan|日本|(?:^|[^a-zA-Z0-9])jp(?:[^a-zA-Z0-9]|$)|japan|罗马尼亚|(?:^|[^a-zA-Z0-9])ro(?:[^a-zA-Z0-9]|$)|Romania|德国|(?:^|[^a-zA-Z0-9])de(?:[^a-zA-Z0-9]|$)|Federal Republic of Germany)).*"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 新加坡
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(新加坡|\\bsg\\b|singapore|狮城)"
+  filter: "(?i)(新加坡|(?:^|[^a-zA-Z0-9])sg(?:[^a-zA-Z0-9]|$)|singapore|狮城)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 美国
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(美国|\\bus\\b|unitedstates|united states)"
+  filter: "(?i)(美国|(?:^|[^a-zA-Z0-9])us(?:[^a-zA-Z0-9]|$)|unitedstates|united states)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 香港
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(香港|hk|hongkong|hong kong)"
+  filter: "(?i)(香港|(?:^|[^a-zA-Z0-9])hk(?:[^a-zA-Z0-9]|$)|hongkong|hong kong)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 台湾
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(台湾|\\btw\\b|taiwan)"
+  filter: "(?i)(台湾|(?:^|[^a-zA-Z0-9])tw(?:[^a-zA-Z0-9]|$)|taiwan)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 日本
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(日本|\\bjp\\b|japan)"
+  filter: "(?i)(日本|(?:^|[^a-zA-Z0-9])jp(?:[^a-zA-Z0-9]|$)|japan)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 罗马尼亚
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(罗马尼亚|ro|Romania)"
+  filter: "(?i)(罗马尼亚|(?:^|[^a-zA-Z0-9])ro(?:[^a-zA-Z0-9]|$)|Romania)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 德国
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(德国|\\bde\\b|Federal Republic of Germany)"
+  filter: "(?i)(德国|(?:^|[^a-zA-Z0-9])de(?:[^a-zA-Z0-9]|$)|Federal Republic of Germany)"
   url: https://cp.cloudflare.com
   interval: 300
 
