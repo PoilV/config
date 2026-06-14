@@ -103,14 +103,14 @@ proxy-groups:
   type: select
   include-all: true
   exclude-type: direct
-  filter: "(?i)^(?!.*(?:新加坡|sg|singapore|美国|us|unitedstates|united states|香港|hk|hongkong|hong kong|台湾|tw|taiwan|日本|jp|japan)).*"
+  filter: "(?i)^(?!.*(?:新加坡|sg|singapore|狮城|美国|us|unitedstates|united states|香港|hk|hongkong|hong kong|台湾|tw|taiwan|日本|jp|japan|罗马尼亚|ro|Romania)).*"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 新加坡
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(新加坡|sg|singapore)"
+  filter: "(?i)(新加坡|sg|singapore|狮城)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 美国
