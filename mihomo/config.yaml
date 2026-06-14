@@ -96,7 +96,7 @@ proxy-providers:
 proxy-groups:
 - name: PROXY
   type: fallback
-  proxies: [socks,http,新加坡,美国,香港,台湾,日本,其它地区,DIRECT]
+  proxies: [新加坡,美国,香港,台湾,日本,其它,DIRECT]
   url: https://cp.cloudflare.com
   interval: 300
 - name: 香港
@@ -134,7 +134,7 @@ proxy-groups:
   filter: "(?i)(新加坡|sg|singapore)"
   url: https://cp.cloudflare.com
   interval: 300
-- name: 其它地区
+- name: 其它
   type: url-test
   include-all: true
   exclude-type: direct
