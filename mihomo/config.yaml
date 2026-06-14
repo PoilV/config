@@ -73,17 +73,6 @@ tun:
     - "tcp://any:53"
   strict-route: true
 
-proxies:
-- name: "http"
-  type: http
-  server: localhost
-  port: 21081
-- name: "socks"
-  type: socks5
-  server: localhost
-  port: 21080
-  udp: true
-
 proxy-providers:
   provider1:
     type: file
