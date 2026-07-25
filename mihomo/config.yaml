@@ -11,8 +11,8 @@ geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
 geox-url:
-  geoip: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-  geosite: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  geoip: "https://github.com/v2fly/geoip/releases/latest/download/geoip.dat"
+  geosite: "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
   mmdb: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb"
   asn: "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb"
 
@@ -97,7 +97,7 @@ proxies:
 proxy-groups:
 - name: PROXY
   type: select
-  proxies: [新加坡,美国,香港,台湾,日本,罗马尼亚,德国,其它,DIRECT]
+  proxies: [socks,http,新加坡,美国,香港,台湾,日本,罗马尼亚,德国,其它,DIRECT]
   url: https://cp.cloudflare.com
   interval: 300
 - name: 其它
@@ -161,24 +161,41 @@ rules:
 - GEOSITE,category-ads-all,REJECT
 - GEOSITE,private,DIRECT
 - GEOSITE,googlefcm,DIRECT
-- GEOSITE,gfw,PROXY
-- GEOSITE,category-games@cn,DIRECT
+- RULE-SET,gfw,PROXY
+- RULE-SET,category-games@cn,DIRECT
+# - GEOSITE,google,PROXY
+# - GEOSITE,tiktok,PROXY
+- GEOSITE,geolocation-!cn@cn,DIRECT
 - GEOSITE,geolocation-!cn,PROXY
+- GEOSITE,cn@!cn,PROXY
 - GEOSITE,cn,DIRECT
 
 - GEOIP,private,DIRECT,no-resolve
 - GEOIP,cn,DIRECT
-- GEOIP,telegram,PROXY
+- RULE-SET,telegram_ip,PROXY
 
 - MATCH,DIRECT
 
 rule-providers:
-#  telegram_ip:
-#    type: http
-#    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
-#    interval: 86400
-#    behavior: ipcidr
-#    format: mrs
+  category-games@cn:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games@cn.mrs
+    interval: 86400
+    behavior: domain
+    format: mrs
+  gfw:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs
+    interval: 86400
+    behavior: domain
+    format: mrs
+
+  telegram_ip:
+    type: http
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
+    interval: 86400
+    behavior: ipcidr
+    format: mrs
 
 
 
