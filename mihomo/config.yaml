@@ -163,11 +163,7 @@ rules:
 - GEOSITE,googlefcm,DIRECT
 - GEOSITE,gfw,PROXY
 - GEOSITE,category-games@cn,DIRECT
-# - GEOSITE,google,PROXY
-# - GEOSITE,tiktok,PROXY
-- GEOSITE,geolocation-!cn@cn,DIRECT
 - GEOSITE,geolocation-!cn,PROXY
-- GEOSITE,cn@!cn,PROXY
 - GEOSITE,cn,DIRECT
 
 - GEOIP,private,DIRECT,no-resolve
