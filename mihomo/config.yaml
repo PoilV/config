@@ -173,13 +173,12 @@ rules:
 - MATCH,DIRECT
 
 rule-providers:
-
-  telegram_ip:
-    type: http
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
-    interval: 86400
-    behavior: ipcidr
-    format: mrs
+#  telegram_ip:
+#    type: http
+#    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
+#    interval: 86400
+#    behavior: ipcidr
+#    format: mrs
 
 
 
