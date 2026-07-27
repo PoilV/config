@@ -158,6 +158,7 @@ proxy-groups:
   interval: 300
 
 rules:
+- RULE-SET,anti-ad,REJECT
 - GEOSITE,category-ads-all,REJECT
 - GEOSITE,private,DIRECT
 - GEOSITE,googlefcm,DIRECT
@@ -177,6 +178,12 @@ rules:
 - MATCH,DIRECT
 
 rule-providers:
+  anti-ad:
+    type: http
+    url: https://raw.githubusercontent.com/privacy-protection-tools/anti-ad.github.io/master/docs/mihomo.mrs
+    interval: 86400
+    behavior: domain
+    format: mrs
   category-games@cn:
     type: http
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games@cn.mrs
