@@ -158,6 +158,8 @@ proxy-groups:
   interval: 300
 
 rules:
+- PROCESS-NAME,niepancloud.exe,DIRECT
+
 - RULE-SET,anti-ad,REJECT
 - GEOSITE,category-ads-all,REJECT
 - GEOSITE,private,DIRECT
