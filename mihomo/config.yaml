@@ -117,7 +117,7 @@ proxy-groups:
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(🇺🇸|美国|(\bus\b|unitedstates|united states)"
+  filter: "(?i)(🇺🇸|美国|\bus\b|unitedstates|united states)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 香港
