@@ -117,28 +117,28 @@ proxy-groups:
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(🇺🇸|美国|(?:^|[^a-zA-Z0-9])us(?:[^a-zA-Z0-9]|$)|unitedstates|united states)"
+  filter: "(?i)(🇺🇸|美国|(\bus\b|unitedstates|united states)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 香港
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(🇭🇰|香港|(?:^|[^a-zA-Z0-9])hk(?:[^a-zA-Z0-9]|$)|hongkong|hong kong)"
+  filter: "(?i)(🇭🇰|香港|\bhk\b|hongkong|hong kong)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 台湾
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(🇹🇼|台湾|(?:^|[^a-zA-Z0-9])tw(?:[^a-zA-Z0-9]|$)|taiwan)"
+  filter: "(?i)(🇹🇼|台湾|\btw\b|taiwan)"
   url: https://cp.cloudflare.com
   interval: 300
 - name: 日本
   type: url-test
   include-all: true
   exclude-type: direct
-  filter: "(?i)(🇯🇵|日本|(?:^|[^a-zA-Z0-9])jp(?:[^a-zA-Z0-9]|$)|japan)"
+  filter: "(?i)(🇯🇵|日本|\bjp\b|japan)"
   url: https://cp.cloudflare.com
   interval: 300
 
